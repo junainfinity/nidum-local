@@ -1,0 +1,19 @@
+
+portless doctor
+
+Version: 0.15.6
+Node.js: 26.10.0
+Platform: darwin arm64
+State dir: /tmp/nidum-portless-example
+Proxy target: http://127.0.0.1:58214
+Mode: HTTP, .localhost
+
+ok    Node.js 26.10.0 satisfies portless requirements.
+ok    State directory is writable: /tmp/nidum-portless-example
+fail  Port 58214 is in use, but it is not a portless proxy.
+      Process on port: PID 4242
+info  HTTPS is disabled, so OpenSSL is not required for this run.
+info  HTTPS is disabled for the current proxy state.
+info  No routes are registered.
+
+Summary: 1 failure, 0 warnings.

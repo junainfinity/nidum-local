@@ -1,0 +1,15 @@
+#!/bin/bash
+# Stub sed (installed as "sed" for one test): runs the real sed, then, right after the first
+# call that extracts the token, renames $STUB_STATE/session.next over session.json, the way the
+# server's atomic rename could land between two reads.
+/usr/bin/sed "$@"
+rc=$?
+case "$*" in
+  *'"token"'*)
+    if [ -f "$STUB_STATE/session.next" ]; then
+      mv -f "$STUB_STATE/session.next" "$NIDUM_HOME/session.json"
+      echo "sed-swap: session.json replaced" >>"$STUB_LOG"
+    fi
+    ;;
+esac
+exit $rc

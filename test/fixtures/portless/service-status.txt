@@ -1,0 +1,10 @@
+portless service
+  Manager state: running
+  Installed: yes
+  Proxy on 80: responding
+  HTTPS: no
+  TLDs: .local
+  LAN mode: yes
+  Wildcard: no
+  State directory: /Users/example/.portless
+  Service entry: /Library/LaunchDaemons/sh.portless.proxy.plist

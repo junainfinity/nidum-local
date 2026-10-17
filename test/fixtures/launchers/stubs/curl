@@ -1,0 +1,32 @@
+#!/bin/bash
+# Stub curl: answers from files in $STUB_STATE. Never touches the network.
+#   proxy-<port>   exists -> HEAD / answers with X-Portless: 1
+#   other-<port>   exists -> HEAD / answers without X-Portless
+#   health-<port>  exists -> GET /api/health prints its contents
+echo "curl $*" >>"$STUB_LOG"
+url='' head=0 maxtime='' prev=''
+for a in "$@"; do
+  [ "$prev" = -m ] && maxtime=$a
+  prev=$a
+  case "$a" in
+    http://*|https://*) url=$a ;;
+    --*) ;;
+    -*I*) head=1 ;;
+  esac
+done
+[ -n "$url" ] || exit 2
+rest=${url#*://}
+hostport=${rest%%/*}
+host=${hostport%%:*}
+port=${hostport##*:}
+path=/${rest#*/}
+[ "$host" = 127.0.0.1 ] || { echo "stub curl: refusing non-loopback host $host" >&2; exit 6; }
+# STUB_CURL_HANG=1: the port accepts but never answers, so every call runs into its -m limit.
+if [ -n "${STUB_CURL_HANG:-}" ]; then /bin/sleep "${maxtime:-30}"; exit 28; fi
+if [ $head = 1 ]; then
+  if [ -f "$STUB_STATE/proxy-$port" ]; then printf 'HTTP/1.1 404 Not Found\r\nX-Portless: 1\r\n\r\n'; exit 0; fi
+  if [ -f "$STUB_STATE/other-$port" ]; then printf 'HTTP/1.1 200 OK\r\nServer: other\r\n\r\n'; exit 0; fi
+  exit 7
+fi
+if [ "$path" = /api/health ] && [ -f "$STUB_STATE/health-$port" ]; then cat "$STUB_STATE/health-$port"; exit 0; fi
+exit 7

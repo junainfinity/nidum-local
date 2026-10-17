@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Same shape as the launchd plist Portless 0.15.6 writes ("portless service install"). -->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>sh.portless.proxy</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/opt/homebrew/Cellar/node/26.10.0_1/bin/node</string>
+    <string>/opt/homebrew/bin/portless</string>
+    <string>proxy</string>
+    <string>start</string>
+    <string>--foreground</string>
+    <string>--port</string>
+    <string>__PORT__</string>
+    <string>--no-tls</string>
+    <string>--lan</string>
+    <string>--skip-trust</string>
+  </array>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PORTLESS_STATE_DIR</key>
+    <string>__STATE_DIR__</string>
+    <key>PORTLESS_PORT</key>
+    <string>__PORT__</string>
+    <key>PORTLESS_HTTPS</key>
+    <string>0</string>
+    <key>PORTLESS_LAN</key>
+    <string>1</string>
+    <key>PORTLESS_WILDCARD</key>
+    <string>0</string>
+    <key>PORTLESS_TLD</key>
+    <string>local</string>
+  </dict>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+</dict>
+</plist>

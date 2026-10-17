@@ -1,0 +1,18 @@
+#!/bin/bash
+# Stub launchctl. "print" fails while $STUB_STATE/service-unloaded exists (service booted out);
+# "bootstrap" loads it again and makes the stub proxy answer on $STUB_SERVICE_PORT (default 80).
+echo "launchctl $*" >>"$STUB_LOG"
+# STUB_LAUNCHCTL_HANG=1: never answers (exec, so the caller's TERM ends the sleep too).
+if [ -n "${STUB_LAUNCHCTL_HANG:-}" ]; then exec /bin/sleep 30; fi
+case "$1" in
+  print)
+    if [ -f "$STUB_STATE/service-unloaded" ]; then echo "Could not find service \"sh.portless.proxy\" in domain for system"; exit 113; fi
+    echo "state = running"; exit 0 ;;
+  bootstrap)
+    if [ "${STUB_BOOTSTRAP:-ok}" = fail ]; then echo "Bootstrap failed: 5: Input/output error"; exit 5; fi
+    rm -f "$STUB_STATE/service-unloaded"
+    echo http >"$STUB_STATE/proxy-${STUB_SERVICE_PORT:-80}"
+    exit 0 ;;
+esac
+echo "stub launchctl: unexpected arguments: $*" >&2
+exit 2

@@ -1,0 +1,30 @@
+<dictionary> {
+  Active : FALSE
+  IPv4 : <array> {
+    0 : <dictionary> {
+      ConfigMethod : DHCP
+      DHCP : <dictionary> {
+        State : INACTIVE
+      }
+      IsPublished : FALSE
+      LastFailureStatus : media inactive
+      ServiceID : A15DCA46-0878-4F84-8083-D40F96D5DECF
+    }
+  }
+  IPv6 : <array> {
+    0 : <dictionary> {
+      ConfigMethod : Automatic
+      DHCPv6 : <dictionary> {
+        Mode : None
+        State : Inactive
+      }
+      IsPublished : FALSE
+      LastFailureStatus : media inactive
+      RTADV : <dictionary> {
+        State : Inactive
+      }
+      ServiceID : A15DCA46-0878-4F84-8083-D40F96D5DECF
+    }
+  }
+  InterfaceType : WiFi
+}

@@ -1,0 +1,20 @@
+[
+  { "status": 401, "title": "Unauthorized", "expect": null },
+  { "status": 401, "title": "401 Unauthorized", "expect": null },
+  { "status": 403, "title": "Forbidden", "expect": null },
+  { "status": 403, "title": "403 - Forbidden", "expect": null },
+  { "status": 404, "title": "Not Found", "expect": null },
+  { "status": 404, "title": "404 Not Found", "expect": null },
+  { "status": 404, "title": "Error 404 (Not Found)!!1", "expect": null },
+  { "status": 404, "title": "NOT FOUND", "expect": null },
+  { "status": 500, "title": "Error", "expect": null },
+  { "status": 500, "title": "500 Internal Server Error", "expect": null },
+  { "status": 400, "title": "Bad Request", "expect": null },
+  { "status": 503, "title": "Service Unavailable", "expect": null },
+  { "status": 502, "title": "HTTP 502 Bad Gateway", "expect": null },
+  { "status": 404, "title": "Page not found", "expect": null },
+  { "status": 404, "title": "Recipes – Not Found", "expect": "Recipes – Not Found" },
+  { "status": 401, "title": "Sign in to Grafana", "expect": "Sign in to Grafana" },
+  { "status": 403, "title": "Jupyter Server", "expect": "Jupyter Server" },
+  { "status": 200, "title": "Not Found", "expect": "Not Found" }
+]

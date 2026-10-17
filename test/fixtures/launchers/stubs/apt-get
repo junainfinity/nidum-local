@@ -1,0 +1,4 @@
+#!/bin/bash
+# Stub apt-get: records the call and does nothing else.
+echo "apt-get $*" >>"$STUB_LOG"
+exit 0

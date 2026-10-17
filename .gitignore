@@ -1,0 +1,8 @@
+node_modules/
+.DS_Store
+*.log
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+dist/
+docs/backups/
+docs/

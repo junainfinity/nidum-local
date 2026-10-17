@@ -1,0 +1,25 @@
+#!/bin/bash
+# Stub pgrep: matches "-U <uid> -x [--] <name>" against $STUB_STATE/processes, one
+# "<uid> <name> [<pid>] [args...]" line per fake process. Like the real one: -x compares the
+# process name exactly, -U the real uid; the arguments never match; "--" ends the options.
+# Prints the pid of each match that has one. Exit 0 when something matched, 1 otherwise.
+echo "pgrep $*" >>"$STUB_LOG"
+uid='' name=''
+while [ $# -gt 0 ]; do
+  case "$1" in
+    -U) uid=$2; shift 2 ;;
+    -x) shift ;;
+    --) name=$2; shift $# ;;
+    -*) echo "stub pgrep: unsupported option $1" >&2; exit 2 ;;
+    *) name=$1; shift ;;
+  esac
+done
+[ -f "$STUB_STATE/processes" ] || exit 1
+rc=1
+while read -r puid pname ppid _; do
+  [ -n "$uid" ] && [ "$puid" != "$uid" ] && continue
+  [ "$pname" = "$name" ] || continue
+  rc=0
+  case "$ppid" in ''|*[!0-9]*) ;; *) echo "$ppid" ;; esac
+done <"$STUB_STATE/processes"
+exit $rc

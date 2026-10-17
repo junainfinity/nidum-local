@@ -1,0 +1,43 @@
+#!/bin/bash
+# Stub portless: records calls; "proxy start/stop" only flip files in $STUB_STATE.
+echo "portless $*" >>"$STUB_LOG"
+state_dir=${PORTLESS_STATE_DIR:-$STUB_STATE/portless}
+case "$1" in
+  --version)
+    [ -n "${STUB_VERSION_DELAY:-}" ] && /bin/sleep "$STUB_VERSION_DELAY"
+    if [ -n "${STUB_PORTLESS_BROKEN:-}" ]; then echo "dyld: Library not loaded" >&2; exit 1; fi
+    if [ -f "$STUB_STATE/portless-version" ]; then cat "$STUB_STATE/portless-version"; else echo "${STUB_PORTLESS_VERSION:-0.15.6}"; fi
+    exit 0
+    ;;
+  proxy)
+    port='' prev='' scheme=https lan=0
+    for a in "$@"; do
+      [ "$prev" = -p ] || [ "$prev" = --port ] && port=$a
+      [ "$a" = --no-tls ] && scheme=http
+      [ "$a" = --lan ] && lan=1
+      prev=$a
+    done
+    case "$2" in
+      start)
+        if [ "${STUB_PROXY_START:-ok}" = fail ]; then
+          echo "Error: Port $port is already used by another program (httpd, PID 812)."
+          exit 1
+        fi
+        mkdir -p "$state_dir"
+        echo "$scheme" >"$STUB_STATE/proxy-$port"
+        echo "$port" >"$state_dir/proxy.port"
+        if [ $lan = 1 ]; then echo 192.168.1.42 >"$state_dir/proxy.lan"; fi
+        if [ $scheme = https ]; then touch "$state_dir/proxy.tls"; else rm -f "$state_dir/proxy.tls"; fi
+        echo "Proxy started on port $port"
+        exit 0
+        ;;
+      stop)
+        rm -f "$STUB_STATE/proxy-$port" "$state_dir/proxy.port"
+        echo "Proxy stopped"
+        exit 0
+        ;;
+    esac
+    ;;
+esac
+echo "stub portless: unexpected arguments: $*" >&2
+exit 2

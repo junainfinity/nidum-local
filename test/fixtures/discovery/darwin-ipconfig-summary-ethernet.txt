@@ -1,0 +1,69 @@
+<dictionary> {
+  IPv4 : <array> {
+    0 : <dictionary> {
+      Addresses : <array> {
+        0 : 192.168.68.119
+      }
+      ChildServiceID : LINKLOCAL-en11
+      ConfigMethod : DHCP
+      DHCP : <dictionary> {
+        LeaseExpirationTime : 10/15/2026 14:43:18
+        LeaseStartTime : 10/15/2026 12:43:18
+        Packet : op = BOOTREPLY
+htype = 1
+flags = 0x0
+hlen = 6
+hops = 0
+xid = 0x39b391af
+secs = 0
+ciaddr = 192.168.68.119
+yiaddr = 192.168.68.119
+siaddr = 0.0.0.0
+giaddr = 0.0.0.0
+chaddr = 02:00:00:00:00:09
+sname = 
+file = 
+options:
+Options count is 7
+dhcp_message_type (uint8): ACK 0x5
+server_identifier (ip): 192.168.68.1
+lease_time (uint32): 0x1c20
+subnet_mask (ip): 255.255.255.0
+router (ip_mult): {192.168.68.1}
+domain_name_server (ip_mult): {192.168.0.1, 192.168.0.1}
+end (none): 
+
+        State : BOUND
+      }
+      IsPublished : TRUE
+      Router : 192.168.68.1
+      RouterARPVerified : TRUE
+      ServiceID : 0C51079A-8F1D-4340-A96D-8043B031E978
+      SubnetMasks : <array> {
+        0 : 255.255.255.0
+      }
+    }
+    1 : <dictionary> {
+      ConfigMethod : LinkLocal
+      IsPublished : TRUE
+      ParentServiceID : 0C51079A-8F1D-4340-A96D-8043B031E978
+      ServiceID : LINKLOCAL-en11
+    }
+  }
+  IPv6 : <array> {
+    0 : <dictionary> {
+      ConfigMethod : Automatic
+      DHCPv6 : <dictionary> {
+        Mode : None
+        State : Inactive
+      }
+      IsPublished : TRUE
+      RTADV : <dictionary> {
+        State : Solicit
+      }
+      ServiceID : 0C51079A-8F1D-4340-A96D-8043B031E978
+    }
+  }
+  InterfaceType : Ethernet
+  LinkStatusActive : TRUE
+}

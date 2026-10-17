@@ -1,0 +1,27 @@
+
+portless doctor
+
+Version: 0.15.6
+Node.js: 26.10.0
+Platform: darwin arm64
+State dir: /Users/example/.portless
+Proxy target: http://127.0.0.1
+Mode: HTTP, .local, LAN
+
+ok    Node.js 26.10.0 satisfies portless requirements.
+ok    State directory is writable: /Users/example/.portless
+ok    Proxy is responding on port 80.
+ok    Proxy PID file points to the responding proxy process: 12825
+info  HTTPS is disabled, so OpenSSL is not required for this run.
+info  HTTPS is disabled for the current proxy state.
+ok    Routes: 4 active routes.
+warn  Route alpha.local points to port 1234, but nothing is listening there.
+      Remove the alias or start that service.
+warn  Route notes.local points to port 27123, but nothing is listening there.
+      Remove the alias or start that service.
+warn  Route arcade.local points to port 8180, but nothing is listening there.
+      Remove the alias or start that service.
+ok    mDNS publishing support is available for LAN mode.
+ok    LAN IP is recorded: 192.0.2.10
+
+Summary: 0 failures, 3 warnings.

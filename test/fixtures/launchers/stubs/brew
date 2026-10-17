@@ -1,0 +1,13 @@
+#!/bin/bash
+# Stub brew: "installs" by copying stubs into the stub bin folder.
+echo "brew $*" >>"$STUB_LOG"
+if [ "${STUB_BREW_FAIL:-}" = 1 ]; then echo "Error: No bottle available"; exit 1; fi
+case "$1 $2" in
+  "install portless") cp "$STUB_SRC/portless" "$STUB_BIN/portless"; chmod 755 "$STUB_BIN/portless" ;;
+  "install node") cp "$STUB_SRC/node" "$STUB_BIN/node"; chmod 755 "$STUB_BIN/node" ;;
+  "upgrade portless") echo 0.16.0 >"$STUB_STATE/portless-version" ;;
+  "reinstall portless") ;;
+  *) echo "stub brew: unexpected arguments: $*" >&2; exit 2 ;;
+esac
+echo "==> Done"
+exit 0

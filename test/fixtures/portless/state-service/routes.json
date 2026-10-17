@@ -1,0 +1,22 @@
+[
+  {
+    "hostname": "alpha.local",
+    "port": 1234,
+    "pid": 0
+  },
+  {
+    "hostname": "notes.local",
+    "port": 27123,
+    "pid": 0
+  },
+  {
+    "hostname": "arcade.local",
+    "port": 8180,
+    "pid": 0
+  },
+  {
+    "hostname": "media.local",
+    "port": 32400,
+    "pid": 0
+  }
+]

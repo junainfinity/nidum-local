@@ -1,0 +1,2 @@
+You are not associated with an AirPort network.
+Wi-Fi power is currently off.

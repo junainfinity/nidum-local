@@ -1,0 +1,4 @@
+    1 /sbin/launchd
+  701 /System/Library/CoreServices/ControlCenter.app/Contents/MacOS/ControlCenter
+36434 node /Users/ada/code/My_App/node_modules/.bin/vite --port 5173\012--host
+ 4122 /opt/homebrew/bin/python3.12 -m http.server 8000

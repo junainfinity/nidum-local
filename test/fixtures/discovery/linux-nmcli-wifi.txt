@@ -1,0 +1,4 @@
+no:Neighbour\:Guest
+yes:Home WiFi 5G
+no:
+no:CoffeeShop-Guest

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>sh.portless.proxy</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/opt/homebrew/Cellar/node/26.10.0_1/bin/node</string>
+    <string>/opt/homebrew/bin/portless</string>
+    <string>proxy</string>
+    <string>start</string>
+    <string>--foreground</string>
+    <string>--port</string>
+    <string>80</string>
+    <string>--no-tls</string>
+    <string>--lan</string>
+    <string>--skip-trust</string>
+  </array>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PORTLESS_STATE_DIR</key>
+    <string>/Users/example/.portless</string>
+    <key>PORTLESS_PORT</key>
+    <string>80</string>
+    <key>PORTLESS_HTTPS</key>
+    <string>0</string>
+    <key>PORTLESS_LAN</key>
+    <string>1</string>
+    <key>PORTLESS_WILDCARD</key>
+    <string>0</string>
+    <key>PORTLESS_TLD</key>
+    <string>local</string>
+    <key>HOME</key>
+    <string>/Users/example</string>
+    <key>SUDO_UID</key>
+    <string>501</string>
+    <key>SUDO_GID</key>
+    <string>20</string>
+  </dict>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/Users/example/.portless/service.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/example/.portless/service.log</string>
+</dict>
+</plist>

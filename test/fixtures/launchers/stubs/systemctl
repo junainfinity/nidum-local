@@ -1,0 +1,12 @@
+#!/bin/bash
+# Stub systemctl (Linux tests): same model as the launchctl stub.
+echo "systemctl $*" >>"$STUB_LOG"
+case "$1" in
+  is-active) [ -f "$STUB_STATE/service-unloaded" ] && exit 3; exit 0 ;;
+  start)
+    rm -f "$STUB_STATE/service-unloaded"
+    echo http >"$STUB_STATE/proxy-${STUB_SERVICE_PORT:-80}"
+    exit 0 ;;
+esac
+echo "stub systemctl: unexpected arguments: $*" >&2
+exit 2

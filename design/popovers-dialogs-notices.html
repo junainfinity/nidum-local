@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<title>Nidum Local — Popovers, dialogs and notices</title>
+<script src="6378f7a2-3396-4e22-993c-1ac6c0368d66"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+.tl{
+  --bg:#F3F1EC; --surface:#FCFBF8; --surface-2:#EFECE5; --border:#E2DED5; --border-strong:#CDC8BD; --border-input:#949086;
+  --text:#12151B; --text-2:#50535A; --text-3:#686B73;
+  --accent:#12151B; --on-accent:#F8F6F1; --link:#9A5B00; --amber:#F2A33A; --accent-weak:#FBEAD0; --focus:#B86E00;
+  --live:#1E7F4F; --waiting:#8F6500; --error:#C0392F; --on-error:#FFFFFF; --neutral:#686B73;
+  --shadow-2:0 8px 24px rgb(18 21 27 / .14); --scrim:rgb(18 21 27 / .32);
+}
+.td{
+  --bg:#0D0F13; --surface:#15181E; --surface-2:#1E222A; --border:#272C35; --border-strong:#3A404B; --border-input:#646A75;
+  --text:#F3F1EC; --text-2:#A8ABB2; --text-3:#878B94;
+  --accent:#F2A33A; --on-accent:#12151B; --link:#F5B45E; --amber:#F2A33A; --accent-weak:#2A2116; --focus:#F2A33A;
+  --live:#45C986; --waiting:#E5C04A; --error:#FF7B72; --on-error:#12151B; --neutral:#878B94;
+  --shadow-2:0 12px 32px rgb(0 0 0 / .55); --scrim:rgb(0 0 0 / .6);
+}
+.ov{font-family:system-ui,-apple-system,"Segoe UI","Helvetica Neue",sans-serif; font-size:14px; line-height:20px; -webkit-font-smoothing:antialiased}
+.ov a{color:var(--link)}
+.mono{font-family:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace; font-variant-numeric:tabular-nums}
+.ic{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:36px;padding:0 14px;border-radius:10px;font:inherit;font-weight:500;cursor:pointer;white-space:nowrap;box-sizing:border-box}
+.btn-p{background:var(--accent);color:var(--on-accent);border:1px solid var(--accent)}
+.btn-s{background:var(--surface);color:var(--text);border:1px solid var(--border-strong)}
+.btn-g{background:transparent;color:var(--text-2);border:1px solid transparent;height:32px;padding:0 10px}
+.btn-x{background:var(--error);color:var(--on-error);border:1px solid var(--error)}
+.ov button:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.lbl{margin:0;font-size:12px;line-height:16px;font-weight:500;color:var(--text-3)}
+</style>
+</helmet>
+<div class="ov" style="width:1440px; height:1060px; display:grid; grid-template-columns:repeat(2, minmax(0, 1fr))">
+
+  <section class="tl" aria-label="Light theme" style="background:var(--bg); color:var(--text); padding:40px; display:flex; flex-direction:column; gap:28px">
+    <div style="font-size:20px; line-height:28px; font-weight:600">Light</div>
+
+    <div style="display:flex; flex-direction:column; gap:8px">
+      <p class="lbl">Banner · error</p>
+      <div role="alert" style="display:flex; flex-wrap:wrap; align-items:center; gap:10px 12px; padding:12px 16px; border-radius:10px; background:color-mix(in srgb, var(--error) 10%, var(--surface)); border:1px solid color-mix(in srgb, var(--error) 30%, transparent)">
+        <svg class="ic" sc-camel-view-box="0 0 24 24" aria-hidden="true" style="color:var(--error)"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg>
+        <p style="margin:0; flex:1 1 240px; font-weight:500">Network sharing stopped. Your addresses are offline.</p>
+        <button type="button" class="btn btn-s" style="height:32px">Run diagnostics</button>
+        <button type="button" class="btn btn-p" style="height:32px">Start again</button>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:272px minmax(0, 1fr); gap:24px; align-items:start">
+      <div style="display:flex; flex-direction:column; gap:8px">
+        <p class="lbl">QR popover</p>
+        <div style="background:var(--surface); border:1px solid var(--border); border-radius:14px; box-shadow:var(--shadow-2); padding:16px; display:flex; flex-direction:column; gap:12px">
+          <div role="img" aria-label="QR code for https://recipes.local" style="align-self:center; background:#FFFFFF; padding:28px; border-radius:6px">
+            <div style="display:grid; grid-template-columns:repeat(25, 7px); grid-auto-rows:7px">
+              <sc-for list="{{qr}}" as="m" hint-placeholder-count="25"><div style="background: {{m.c}}"></div></sc-for>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:2px">
+            <span class="mono" style="font-size:13px; line-height:18px; font-weight:500; user-select:all">https://recipes.local</span>
+            <span style="font-size:13px; line-height:18px; color:var(--text-2)">Scan with your phone's camera.</span>
+          </div>
+          <div style="display:flex; gap:8px">
+            <button type="button" class="btn btn-s" style="height:32px; flex:1">Copy link</button>
+            <button type="button" class="btn btn-s" style="height:32px; flex:1">Download</button>
+          </div>
+          <p style="margin:0; padding-top:10px; border-top:1px solid var(--border); font-size:13px; line-height:18px; color:var(--text-2)">First time on this phone? <a href="#setup">Set up this device</a></p>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:8px">
+        <p class="lbl">Confirm dialog</p>
+        <div style="background:var(--scrim); border-radius:14px; padding:72px 24px; display:flex; align-items:center; justify-content:center">
+          <div role="dialog" aria-modal="true" aria-labelledby="dlg-l" style="width:100%; max-width:340px; background:var(--surface); border:1px solid var(--border); border-radius:14px; box-shadow:var(--shadow-2); padding:24px; display:flex; flex-direction:column; gap:8px">
+            <h3 id="dlg-l" style="margin:0; font-size:17px; line-height:24px; font-weight:600">Remove recipes.local?</h3>
+            <p style="margin:0; color:var(--text-2)">Devices using this address will stop reaching it. The service itself keeps running.</p>
+            <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:16px">
+              <button type="button" class="btn btn-s" style="outline:2px solid var(--focus); outline-offset:2px">Cancel</button>
+              <button type="button" class="btn btn-x">Remove address</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:8px">
+      <p class="lbl">Inline notice · warning</p>
+      <div style="display:flex; gap:12px; padding:14px 16px; border-radius:10px; background:color-mix(in srgb, var(--waiting) 10%, var(--surface)); border:1px solid color-mix(in srgb, var(--waiting) 28%, transparent)">
+        <svg class="ic" sc-camel-view-box="0 0 24 24" aria-hidden="true" style="margin-top:2px; color:var(--waiting)"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg>
+        <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:8px">
+          <p style="margin:0; font-weight:500"><span class="mono">recipes.local</span> works, but Vite blocked the name.</p>
+          <div style="display:flex; flex-wrap:wrap; align-items:center; gap:8px; font-size:13px; color:var(--text-2)">
+            Add this to <span class="mono">vite.config.js</span>:
+            <code class="mono" style="padding:4px 8px; border-radius:6px; background:var(--surface-2); color:var(--text); font-size:13px">server: { allowedHosts: ['.local'] }</code>
+            <button type="button" class="btn btn-g">Copy</button>
+          </div>
+          <div><button type="button" class="btn btn-s" style="height:32px">Check again</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:8px">
+      <p class="lbl">Toasts</p>
+      <div role="status" style="max-width:360px; display:flex; align-items:center; gap:10px; padding:12px 14px; border-radius:10px; background:var(--surface); border:1px solid var(--border); box-shadow:var(--shadow-2)">
+        <svg class="ic" sc-camel-view-box="0 0 24 24" aria-hidden="true" style="color:var(--live)"><path d="M20 6 9 17l-5-5"></path></svg>
+        <p style="margin:0; flex:1"><span class="mono">recipes.local</span> is ready. Open it on any device on HomeWiFi.</p>
+      </div>
+      <div role="status" style="max-width:360px; display:flex; align-items:center; gap:10px; padding:8px 8px 8px 14px; border-radius:10px; background:var(--surface); border:1px solid var(--border); box-shadow:var(--shadow-2)">
+        <p style="margin:0; flex:1">Removed <span class="mono">recipes.local</span>.</p>
+        <button type="button" class="btn btn-g" style="color:var(--link); font-weight:600">Undo</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="td" aria-label="Dark theme" style="background:var(--bg); color:var(--text); padding:40px; display:flex; flex-direction:column; gap:28px; color-scheme:dark">
+    <div style="font-size:20px; line-height:28px; font-weight:600">Dark</div>
+
+    <div style="display:flex; flex-direction:column; gap:8px">
+      <p class="lbl">Banner · error</p>
+      <div role="alert" style="display:flex; flex-wrap:wrap; align-items:center; gap:10px 12px; padding:12px 16px; border-radius:10px; background:color-mix(in srgb, var(--error) 10%, var(--surface)); border:1px solid color-mix(in srgb, var(--error) 30%, transparent)">
+        <svg class="ic" sc-camel-view-box="0 0 24 24" aria-hidden="true" style="color:var(--error)"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg>
+        <p style="margin:0; flex:1 1 240px; font-weight:500">Network sharing stopped. Your addresses are offline.</p>
+        <button type="button" class="btn btn-s" style="height:32px">Run diagnostics</button>
+        <button type="button" class="btn btn-p" style="height:32px">Start again</button>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:272px minmax(0, 1fr); gap:24px; align-items:start">
+      <div style="display:flex; flex-direction:column; gap:8px">
+        <p class="lbl">QR popover · code stays black on white</p>
+        <div style="background:var(--surface); border:1px solid var(--border); border-radius:14px; box-shadow:var(--shadow-2); padding:16px; display:flex; flex-direction:column; gap:12px">
+          <div role="img" aria-label="QR code for https://recipes.local" style="align-self:center; background:#FFFFFF; padding:28px; border-radius:6px">
+            <div style="display:grid; grid-template-columns:repeat(25, 7px); grid-auto-rows:7px">
+              <sc-for list="{{qr}}" as="m" hint-placeholder-count="25"><div style="background: {{m.c}}"></div></sc-for>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:2px">
+            <span class="mono" style="font-size:13px; line-height:18px; font-weight:500; user-select:all">https://recipes.local</span>
+            <span style="font-size:13px; line-height:18px; color:var(--text-2)">Scan with your phone's camera.</span>
+          </div>
+          <div style="display:flex; gap:8px">
+            <button type="button" class="btn btn-s" style="height:32px; flex:1">Copy link</button>
+            <button type="button" class="btn btn-s" style="height:32px; flex:1">Download</button>
+          </div>
+          <p style="margin:0; padding-top:10px; border-top:1px solid var(--border); font-size:13px; line-height:18px; color:var(--text-2)">First time on this phone? <a href="#setup">Set up this device</a></p>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:8px">
+        <p class="lbl">Confirm dialog</p>
+        <div style="background:var(--scrim); border:1px solid var(--border); border-radius:14px; padding:72px 24px; display:flex; align-items:center; justify-content:center">
+          <div role="dialog" aria-modal="true" aria-labelledby="dlg-d" style="width:100%; max-width:340px; background:var(--surface); border:1px solid var(--border-strong); border-radius:14px; box-shadow:var(--shadow-2); padding:24px; display:flex; flex-direction:column; gap:8px">
+            <h3 id="dlg-d" style="margin:0; font-size:17px; line-height:24px; font-weight:600">Remove recipes.local?</h3>
+            <p style="margin:0; color:var(--text-2)">Devices using this address will stop reaching it. The service itself keeps running.</p>
+            <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:16px">
+              <button type="button" class="btn btn-s" style="outline:2px solid var(--focus); outline-offset:2px">Cancel</button>
+              <button type="button" class="btn btn-x">Remove address</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:8px">
+      <p class="lbl">Inline notice · warning</p>
+      <div style="display:flex; gap:12px; padding:14px 16px; border-radius:10px; background:color-mix(in srgb, var(--waiting) 8%, var(--surface)); border:1px solid color-mix(in srgb, var(--waiting) 28%, transparent)">
+        <svg class="ic" sc-camel-view-box="0 0 24 24" aria-hidden="true" style="margin-top:2px; color:var(--waiting)"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg>
+        <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:8px">
+          <p style="margin:0; font-weight:500"><span class="mono">recipes.local</span> works, but Vite blocked the name.</p>
+          <div style="display:flex; flex-wrap:wrap; align-items:center; gap:8px; font-size:13px; color:var(--text-2)">
+            Add this to <span class="mono">vite.config.js</span>:
+            <code class="mono" style="padding:4px 8px; border-radius:6px; background:var(--surface-2); color:var(--text); font-size:13px">server: { allowedHosts: ['.local'] }</code>
+            <button type="button" class="btn btn-g">Copy</button>
+          </div>
+          <div><button type="button" class="btn btn-s" style="height:32px">Check again</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:8px">
+      <p class="lbl">Toasts</p>
+      <div role="status" style="max-width:360px; display:flex; align-items:center; gap:10px; padding:12px 14px; border-radius:10px; background:var(--surface-2); border:1px solid var(--border-strong); box-shadow:var(--shadow-2)">
+        <svg class="ic" sc-camel-view-box="0 0 24 24" aria-hidden="true" style="color:var(--live)"><path d="M20 6 9 17l-5-5"></path></svg>
+        <p style="margin:0; flex:1"><span class="mono">recipes.local</span> is ready. Open it on any device on HomeWiFi.</p>
+      </div>
+      <div role="status" style="max-width:360px; display:flex; align-items:center; gap:10px; padding:8px 8px 8px 14px; border-radius:10px; background:var(--surface-2); border:1px solid var(--border-strong); box-shadow:var(--shadow-2)">
+        <p style="margin:0; flex:1">Removed <span class="mono">recipes.local</span>.</p>
+        <button type="button" class="btn btn-g" style="color:var(--link); font-weight:600">Undo</button>
+      </div>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:1060}}">
+class Component extends DCLogic {
+  renderVals() {
+    var N = 25, s = 20261015, qr = [];
+    function rnd() { s = (s * 1103515245 + 12345) % 2147483648; return s / 2147483648; }
+    var finders = [[0, 0], [0, 18], [18, 0]];
+    for (var r = 0; r < N; r++) {
+      for (var c = 0; c < N; c++) {
+        var d = null;
+        for (var i = 0; i < 3; i++) {
+          var R = finders[i][0], C = finders[i][1];
+          if (r >= R && r < R + 7 && c >= C && c < C + 7) {
+            var rr = r - R, cc = c - C;
+            d = rr === 0 || rr === 6 || cc === 0 || cc === 6 || (rr >= 2 && rr <= 4 && cc >= 2 && cc <= 4);
+          }
+        }
+        if (d === null) {
+          if ((r < 8 && c < 8) || (r < 8 && c >= 17) || (r >= 17 && c < 8)) d = false;
+          else if (Math.abs(r - 18) <= 2 && Math.abs(c - 18) <= 2) d = Math.max(Math.abs(r - 18), Math.abs(c - 18)) !== 1;
+          else if (r === 6) d = c % 2 === 0;
+          else if (c === 6) d = r % 2 === 0;
+          else d = rnd() < 0.5;
+        }
+        qr.push({ c: d ? '#000000' : '#FFFFFF' });
+      }
+    }
+    return { qr: qr };
+  }
+}
+</script>
+
+
+</body></html>

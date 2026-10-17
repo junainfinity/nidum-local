@@ -1,0 +1,10 @@
+#!/bin/bash
+# Stub npm: "installs" Portless by copying the stub.
+echo "npm $*" >>"$STUB_LOG"
+case "$*" in
+  "install -g portless") cp "$STUB_SRC/portless" "$STUB_BIN/portless"; chmod 755 "$STUB_BIN/portless" ;;
+  "install -g portless@latest") echo 0.16.0 >"$STUB_STATE/portless-version" ;;
+  *) echo "stub npm: unexpected arguments: $*" >&2; exit 2 ;;
+esac
+echo "added 1 package"
+exit 0

@@ -1,0 +1,7 @@
+#!/bin/bash
+# Stub ps: answers only "ps -o comm= -p <pid>", with the contents of $STUB_STATE/ps-<pid> (the
+# path the fake process was started with). Unknown pids print nothing and exit 1, like the real one.
+echo "ps $*" >>"$STUB_LOG"
+[ "$1 $2 $3" = "-o comm= -p" ] || { echo "stub ps: unsupported arguments: $*" >&2; exit 2; }
+[ -f "$STUB_STATE/ps-$4" ] || exit 1
+cat "$STUB_STATE/ps-$4"

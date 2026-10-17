@@ -1,0 +1,4 @@
+#!/bin/bash
+# Stub xdg-open: records the call and does nothing else.
+echo "xdg-open $*" >>"$STUB_LOG"
+exit 0

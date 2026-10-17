@@ -1,0 +1,1 @@
+{"connections":{"value":[{"LocalAddress":"0.0.0.0","LocalPort":3000,"OwningProcess":10440},{"LocalAddress":"::","LocalPort":3000,"OwningProcess":10440},{"LocalAddress":"127.0.0.1","LocalPort":5173,"OwningProcess":9216}],"Count":3},"processes":{"value":[{"Id":10440,"ProcessName":"node"},{"Id":9216,"ProcessName":"node"}],"Count":2}}

@@ -1,0 +1,10 @@
+LISTEN 0      4096   127.0.0.53%lo:53         0.0.0.0:*                                          
+LISTEN 0      128          0.0.0.0:22         0.0.0.0:*                                          
+LISTEN 0      511        127.0.0.1:5173       0.0.0.0:*    users:(("node",pid=48213,fd=23))      
+LISTEN 0      511          0.0.0.0:8888       0.0.0.0:*    users:(("jupyter-lab",pid=50110,fd=7))
+LISTEN 0      511                *:3000             *:*    users:(("node",pid=51022,fd=19))      
+LISTEN 0      128             [::]:22            [::]:*                                          
+LISTEN 0      4096           [::1]:631           [::]:*                                          
+LISTEN 0      511             [::]:8888          [::]:*    users:(("jupyter-lab",pid=50110,fd=8))
+LISTEN 0      511          0.0.0.0:8080       0.0.0.0:*    users:(("nginx",pid=1201,fd=6),("nginx",pid=1200,fd=6))
+LISTEN 0      4096   [::ffff:127.0.0.1]:6006      *:*    users:(("storybook dev",pid=52001,fd=21))

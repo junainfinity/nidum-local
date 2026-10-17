@@ -1,0 +1,4 @@
+#!/bin/bash
+# Stub sleep wrapper: records each sleep's pid so the test can check none outlives the launcher.
+echo $$ >>"$STUB_STATE/sleep-pids"
+exec /bin/sleep "$@"

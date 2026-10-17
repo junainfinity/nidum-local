@@ -1,0 +1,4 @@
+#!/bin/bash
+# Stub avahi-publish-address: records the call and does nothing else.
+echo "avahi-publish-address $*" >>"$STUB_LOG"
+exit 0

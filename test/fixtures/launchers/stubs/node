@@ -1,0 +1,56 @@
+#!/bin/bash
+# Stub node for test/launchers.test.js. Never runs the dashboard.
+#   node --version          prints $STUB_NODE_VERSION (default v22.22.3)
+#   node -e <helper> ...     the launcher's own small helpers (read state.json, start the server in
+#                            its own session) run on the test runner's Node ($STUB_REAL_NODE); the
+#                            server they start is this stub again, never real JavaScript.
+#   node src/server.js       fake server: writes session.json and a health answer for the stub curl.
+if [ "$1" = -e ]; then
+  echo "node -e <helper> ${*:3}" >>"$STUB_LOG"
+  [ -n "${STUB_REAL_NODE:-}" ] || { echo "stub node: STUB_REAL_NODE is not set" >&2; exit 2; }
+  exec "$STUB_REAL_NODE" "$@"
+fi
+echo "node $*" >>"$STUB_LOG"
+if [ "$1" = --version ]; then
+  [ -n "${STUB_VERSION_DELAY:-}" ] && /bin/sleep "$STUB_VERSION_DELAY"
+  echo "${STUB_NODE_VERSION:-v22.22.3}"
+  exit 0
+fi
+case "$1" in
+  *server.js)
+    echo "node-cwd $(pwd)" >>"$STUB_LOG"
+    echo "node-nidum-home $NIDUM_HOME" >>"$STUB_LOG"
+    echo "node-pid $$" >>"$STUB_LOG"
+    case "${STUB_SERVER_MODE:-ok}" in
+      fail) echo "Error: listen EADDRINUSE: address already in use 127.0.0.1:47800" >&2; exit 1 ;;
+      silent) sleep 3; exit 0 ;;
+    esac
+    port=${STUB_SERVER_PORT:-47800}
+    token=${STUB_SERVER_TOKEN:-cdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd}
+    write_session() {
+      printf '{"port":%s,"token":"%s","pid":%s,"startedAt":"2026-10-15T07:00:00.000Z","version":"1.0.0"}\n' "$port" "$token" "$$" >"$NIDUM_HOME/session.json.tmp"
+      chmod 600 "$NIDUM_HOME/session.json.tmp"
+      mv -f "$NIDUM_HOME/session.json.tmp" "$NIDUM_HOME/session.json"
+    }
+    write_health() {
+      printf '{"ok":true,"app":"nidum-local","version":"1.0.0","pid":%s}' "$$" >"$STUB_STATE/health-$port"
+    }
+    if [ "${STUB_ORDER:-session-first}" = health-first ]; then
+      # Out-of-contract order: health answers while an old session.json is still on disk.
+      sleep "${STUB_SESSION_DELAY:-0.2}"; write_health
+      sleep "${STUB_HEALTH_DELAY:-1.2}"; write_session
+    else
+      # session.json appears first, /api/health answers a little later, so the launcher has to poll.
+      sleep "${STUB_SESSION_DELAY:-0.2}"; write_session
+      sleep "${STUB_HEALTH_DELAY:-0.8}"; write_health
+    fi
+    echo "Nidum Local listening on http://127.0.0.1:$port"
+    if [ "${STUB_SERVER_MODE:-ok}" = linger ]; then
+      # Keep running like a real server, with SIGHUP at its default (fatal) action, as Node does.
+      exec /usr/bin/perl -e '$SIG{HUP} = "DEFAULT"; sleep 30;'
+    fi
+    exit 0
+    ;;
+esac
+echo "stub node: unexpected arguments: $*" >&2
+exit 2

@@ -1,0 +1,4 @@
+#!/bin/bash
+# Stub swiftc: only its presence matters; the fake build script never calls it.
+echo "swiftc $*" >>"$STUB_LOG"
+exit 0

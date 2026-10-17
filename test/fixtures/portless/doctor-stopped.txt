@@ -1,0 +1,26 @@
+
+portless doctor
+
+Version: 0.15.6
+Node.js: 26.10.0
+Platform: darwin arm64
+State dir: /tmp/nidum-portless-example
+Proxy target: http://127.0.0.1:34453
+Mode: HTTP, .localhost
+
+ok    Node.js 26.10.0 satisfies portless requirements.
+ok    State directory is writable: /tmp/nidum-portless-example
+warn  Proxy is not running on port 34453.
+      Run: portless proxy start --no-tls
+info  HTTPS is disabled, so OpenSSL is not required for this run.
+info  HTTPS is disabled for the current proxy state.
+warn  Routes: 1 active route, 1 stale route.
+      Run: portless prune
+warn  Stale route shop.local is owned by exited PID 999999.
+warn  Route docs.local points to port 1, but nothing is listening there.
+      Remove the alias or start that service.
+warn  1 hostname did not resolve through the system resolver.
+      Run: portless hosts sync
+warn  docs.local is missing from hosts block.
+
+Summary: 0 failures, 6 warnings.

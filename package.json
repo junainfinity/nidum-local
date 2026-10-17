@@ -1,0 +1,17 @@
+{
+  "name": "nidum-local",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Share what's running on this computer with your network. A dashboard on top of Portless.",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test --test-force-exit 'test/**/*.test.js'",
+    "test:e2e": "NIDUM_E2E=1 node --test --test-force-exit 'test/e2e/**/*.test.js'",
+    "guard:record": "node test/helpers/guard.js record docs/guard-baseline.json",
+    "guard:check": "node test/helpers/guard.js check docs/guard-baseline.json"
+  }
+}

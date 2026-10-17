@@ -1,0 +1,9 @@
+p701
+fcwd
+n/
+p36434
+fcwd
+n/Users/ada/code/My_App
+p4122
+fcwd
+n/Users/ada/notebooks

@@ -1,0 +1,5 @@
+#!/bin/bash
+# Stub sudo: records the call, then runs the command through PATH, which in the harness holds
+# only stubs and harmless tools. Never real sudo.
+echo "sudo $*" >>"$STUB_LOG"
+"$@"

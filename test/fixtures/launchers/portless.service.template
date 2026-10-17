@@ -1,0 +1,15 @@
+[Unit]
+Description=Portless proxy
+After=network-online.target
+
+[Service]
+Type=simple
+Environment=PORTLESS_STATE_DIR=__STATE_DIR__
+Environment=PORTLESS_PORT=__PORT__
+Environment=PORTLESS_HTTPS=0
+Environment=PORTLESS_LAN=1
+ExecStart=/usr/bin/node /usr/local/bin/portless proxy start --foreground --port __PORT__ --no-tls --lan --skip-trust
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

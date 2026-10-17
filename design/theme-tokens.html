@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<title>Nidum Local — Theme tokens</title>
+<script src="202326f0-3d1b-432c-8ee8-d8a2693d00e1"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+.tl{
+  --bg:#F3F1EC; --surface:#FCFBF8; --surface-2:#EFECE5; --border:#E2DED5; --border-strong:#CDC8BD; --border-input:#949086;
+  --text:#12151B; --text-2:#50535A; --text-3:#686B73;
+  --accent:#12151B; --on-accent:#F8F6F1; --link:#9A5B00; --amber:#F2A33A; --accent-weak:#FBEAD0; --focus:#B86E00;
+  --live:#1E7F4F; --waiting:#8F6500; --error:#C0392F; --neutral:#686B73; --shadow-1:0 1px 2px rgb(18 21 27 / .06); --knob:#FFFFFF;
+}
+.td{
+  --bg:#0D0F13; --surface:#15181E; --surface-2:#1E222A; --border:#272C35; --border-strong:#3A404B; --border-input:#646A75;
+  --text:#F3F1EC; --text-2:#A8ABB2; --text-3:#878B94;
+  --accent:#F2A33A; --on-accent:#12151B; --link:#F5B45E; --amber:#F2A33A; --accent-weak:#2A2116; --focus:#F2A33A;
+  --live:#45C986; --waiting:#E5C04A; --error:#FF7B72; --neutral:#878B94; --shadow-1:none; --knob:#12151B;
+}
+.tk{font-family:system-ui,-apple-system,"Segoe UI","Helvetica Neue",sans-serif; font-size:14px; line-height:20px; -webkit-font-smoothing:antialiased}
+.mono{font-family:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace; font-variant-numeric:tabular-nums}
+.ic{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:36px;padding:0 14px;border-radius:10px;font:inherit;font-weight:500;cursor:pointer;white-space:nowrap;box-sizing:border-box}
+.btn-p{background:var(--accent);color:var(--on-accent);border:1px solid var(--accent)}
+.btn-s{background:var(--surface);color:var(--text);border:1px solid var(--border-strong)}
+.btn-g{background:transparent;color:var(--text-2);border:1px solid transparent}
+.btn-d{color:var(--error)}
+.btn-i{width:32px;height:32px;padding:0;background:transparent;border:1px solid transparent;color:var(--text-2);border-radius:8px}
+.tk button:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.sw{position:relative;width:36px;height:20px;border-radius:10px;border:0;padding:0;flex:none}
+.sw span{position:absolute;top:2px;width:16px;height:16px;border-radius:8px}
+.chip{height:52px;border-radius:8px;box-shadow:inset 0 0 0 1px rgb(128 128 128 / .28)}
+</style>
+</helmet>
+<div class="tk" style="width:1440px; height:1040px; display:grid; grid-template-columns:repeat(2, minmax(0, 1fr))">
+
+  <section class="tl" aria-label="Light theme" style="background:var(--bg); color:var(--text); padding:48px; display:flex; flex-direction:column; gap:32px">
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:24px">
+      <svg sc-camel-view-box="0 0 330 100" height="44" width="145" role="img" aria-label="nidum" style="color:var(--text)">
+        <g transform="translate(0 10) scale(.8)">
+          <g fill="currentColor">
+            <rect x="3" y="3" width="14" height="14" rx="2"></rect><rect x="83" y="3" width="14" height="14" rx="2"></rect>
+            <rect x="3" y="19" width="14" height="14" rx="2"></rect><rect x="19" y="19" width="14" height="14" rx="2"></rect><rect x="83" y="19" width="14" height="14" rx="2"></rect>
+            <rect x="3" y="35" width="14" height="14" rx="2"></rect><rect x="83" y="35" width="14" height="14" rx="2"></rect>
+            <rect x="3" y="51" width="14" height="14" rx="2"></rect><rect x="51" y="51" width="14" height="14" rx="2"></rect><rect x="83" y="51" width="14" height="14" rx="2"></rect>
+            <rect x="3" y="67" width="14" height="14" rx="2"></rect><rect x="67" y="67" width="14" height="14" rx="2"></rect><rect x="83" y="67" width="14" height="14" rx="2"></rect>
+            <rect x="3" y="83" width="14" height="14" rx="2"></rect><rect x="83" y="83" width="14" height="14" rx="2"></rect>
+          </g>
+          <g fill="none" stroke="currentColor" stroke-width="2" opacity=".3">
+            <rect x="19.75" y="3.75" width="12.5" height="12.5" rx="1.5"></rect><rect x="35.75" y="3.75" width="12.5" height="12.5" rx="1.5"></rect><rect x="51.75" y="3.75" width="12.5" height="12.5" rx="1.5"></rect><rect x="67.75" y="3.75" width="12.5" height="12.5" rx="1.5"></rect>
+            <rect x="35.75" y="19.75" width="12.5" height="12.5" rx="1.5"></rect><rect x="51.75" y="19.75" width="12.5" height="12.5" rx="1.5"></rect><rect x="67.75" y="19.75" width="12.5" height="12.5" rx="1.5"></rect>
+            <rect x="19.75" y="35.75" width="12.5" height="12.5" rx="1.5"></rect><rect x="51.75" y="35.75" width="12.5" height="12.5" rx="1.5"></rect><rect x="67.75" y="35.75" width="12.5" height="12.5" rx="1.5"></rect>
+            <rect x="19.75" y="51.75" width="12.5" height="12.5" rx="1.5"></rect><rect x="35.75" y="51.75" width="12.5" height="12.5" rx="1.5"></rect><rect x="67.75" y="51.75" width="12.5" height="12.5" rx="1.5"></rect>
+            <rect x="19.75" y="67.75" width="12.5" height="12.5" rx="1.5"></rect><rect x="35.75" y="67.75" width="12.5" height="12.5" rx="1.5"></rect><rect x="51.75" y="67.75" width="12.5" height="12.5" rx="1.5"></rect>
+            <rect x="19.75" y="83.75" width="12.5" height="12.5" rx="1.5"></rect><rect x="35.75" y="83.75" width="12.5" height="12.5" rx="1.5"></rect><rect x="51.75" y="83.75" width="12.5" height="12.5" rx="1.5"></rect><rect x="67.75" y="83.75" width="12.5" height="12.5" rx="1.5"></rect>
+          </g>
+          <rect x="35" y="35" width="14" height="14" rx="2" fill="#F2A33A"></rect>
+        </g>
+        <g transform="translate(112 20)">
+          <g fill="none" stroke="currentColor" stroke-width="9"><path d="M4.5 20V60M4.5 38A13.5 13.5 0 0 1 31.5 38V60"></path><path d="M48.5 20V60"></path><circle cx="82" cy="40" r="15.5"></circle><path d="M97.5 0V60"></path><path d="M115.5 20V42A13.5 13.5 0 0 0 142.5 42V20M142.5 20V60"></path><path d="M159.5 20V60M159.5 36.5A12 12 0 0 1 183.5 36.5V60M183.5 36.5A12 12 0 0 1 207.5 36.5V60"></path></g>
+          <circle cx="48.5" cy="5.5" r="5.5" fill="#F2A33A"></circle>
+        </g>
+      </svg>
+      <div style="text-align:right">
+        <div style="font-size:20px; line-height:28px; font-weight:600">Light</div>
+        <div style="font-size:13px; line-height:18px; color:var(--text-2)">Paper ground · ink primary · amber as signal</div>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:12px">
+      <h2 style="margin:0; font-size:13px; line-height:18px; font-weight:600; color:var(--text-2)">Surfaces and text</h2>
+      <div style="display:grid; grid-template-columns:repeat(5, minmax(0, 1fr)); gap:16px">
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#F3F1EC"></div><span class="mono" style="font-size:12px; font-weight:500">--bg</span><span class="mono" style="font-size:12px; color:var(--text-2)">#F3F1EC</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#FCFBF8"></div><span class="mono" style="font-size:12px; font-weight:500">--surface</span><span class="mono" style="font-size:12px; color:var(--text-2)">#FCFBF8</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#EFECE5"></div><span class="mono" style="font-size:12px; font-weight:500">--surface-2</span><span class="mono" style="font-size:12px; color:var(--text-2)">#EFECE5</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#E2DED5"></div><span class="mono" style="font-size:12px; font-weight:500">--border</span><span class="mono" style="font-size:12px; color:var(--text-2)">#E2DED5</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#949086"></div><span class="mono" style="font-size:12px; font-weight:500">--border-input</span><span class="mono" style="font-size:12px; color:var(--text-2)">#949086 · 3.1:1</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#12151B"></div><span class="mono" style="font-size:12px; font-weight:500">--text</span><span class="mono" style="font-size:12px; color:var(--text-2)">#12151B · 17.7:1</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#50535A"></div><span class="mono" style="font-size:12px; font-weight:500">--text-2</span><span class="mono" style="font-size:12px; color:var(--text-2)">#50535A · 7.4:1</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#686B73"></div><span class="mono" style="font-size:12px; font-weight:500">--text-3</span><span class="mono" style="font-size:12px; color:var(--text-2)">#686B73 · 5.2:1</span></div>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:12px">
+      <h2 style="margin:0; font-size:13px; line-height:18px; font-weight:600; color:var(--text-2)">Accent and status</h2>
+      <div style="display:grid; grid-template-columns:repeat(5, minmax(0, 1fr)); gap:16px">
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#12151B"></div><span class="mono" style="font-size:12px; font-weight:500">--accent</span><span class="mono" style="font-size:12px; color:var(--text-2)">#12151B</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#9A5B00"></div><span class="mono" style="font-size:12px; font-weight:500">--link</span><span class="mono" style="font-size:12px; color:var(--text-2)">#9A5B00 · 5.2:1</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#FBEAD0"></div><span class="mono" style="font-size:12px; font-weight:500">--accent-weak</span><span class="mono" style="font-size:12px; color:var(--text-2)">#FBEAD0</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#B86E00"></div><span class="mono" style="font-size:12px; font-weight:500">--focus</span><span class="mono" style="font-size:12px; color:var(--text-2)">#B86E00 · 3.5:1</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#F2A33A"></div><span class="mono" style="font-size:12px; font-weight:500">--amber</span><span class="mono" style="font-size:12px; color:var(--text-2)">#F2A33A · brand</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#1E7F4F"></div><span class="mono" style="font-size:12px; font-weight:500">--live</span><span class="mono" style="font-size:12px; color:var(--text-2)">#1E7F4F · 4.8:1</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#8F6500"></div><span class="mono" style="font-size:12px; font-weight:500">--waiting</span><span class="mono" style="font-size:12px; color:var(--text-2)">#8F6500 · 5.0:1</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#C0392F"></div><span class="mono" style="font-size:12px; font-weight:500">--error</span><span class="mono" style="font-size:12px; color:var(--text-2)">#C0392F · 5.2:1</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#686B73"></div><span class="mono" style="font-size:12px; font-weight:500">--neutral</span><span class="mono" style="font-size:12px; color:var(--text-2)">#686B73 · 5.2:1</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#F8F6F1"></div><span class="mono" style="font-size:12px; font-weight:500">--on-accent</span><span class="mono" style="font-size:12px; color:var(--text-2)">#F8F6F1 · 16.9:1</span></div>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:14px; padding:24px; background:var(--surface); border:1px solid var(--border); border-radius:10px; box-shadow:var(--shadow-1)">
+      <h2 style="margin:0; font-size:13px; line-height:18px; font-weight:600; color:var(--text-2)">Components on surface</h2>
+      <div style="display:flex; flex-wrap:wrap; gap:8px">
+        <button type="button" class="btn btn-p">Create address</button>
+        <button type="button" class="btn btn-s">Refresh</button>
+        <button type="button" class="btn btn-g">Rename</button>
+        <button type="button" class="btn btn-g btn-d">Remove</button>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; gap:8px">
+        <span style="display:inline-flex; align-items:center; gap:6px; height:28px; padding:0 10px; border-radius:6px; background:color-mix(in srgb, var(--live) 13%, transparent); font-size:13px; font-weight:500"><svg class="ic" sc-camel-view-box="0 0 24 24" aria-hidden="true" style="color:var(--live)"><path d="M12 20h.01"></path><path d="M2 8.82a15 15 0 0 1 20 0"></path><path d="M5 12.86a10 10 0 0 1 14 0"></path><path d="M8.5 16.43a5 5 0 0 1 7 0"></path></svg>Sharing on</span>
+        <span style="display:inline-flex; align-items:center; gap:6px; height:28px; padding:0 10px; border-radius:6px; background:color-mix(in srgb, var(--neutral) 13%, transparent); font-size:13px; font-weight:500"><svg class="ic" sc-camel-view-box="0 0 24 24" aria-hidden="true" style="color:var(--neutral)"><path d="M12 20h.01"></path><path d="M8.5 16.43a5 5 0 0 1 7 0"></path><path d="M2 8.82a15 15 0 0 1 4.18-2.65"></path><path d="M10.66 5c4.01-.36 8.14.9 11.34 3.76"></path><path d="m2 2 20 20"></path></svg>Paused</span>
+        <span style="display:inline-flex; align-items:center; gap:6px; height:28px; padding:0 10px; border-radius:6px; background:color-mix(in srgb, var(--waiting) 13%, transparent); font-size:13px; font-weight:500"><svg class="ic" sc-camel-view-box="0 0 24 24" aria-hidden="true" style="color:var(--waiting)"><rect width="20" height="14" x="2" y="3" rx="2"></rect><path d="M8 21h8"></path><path d="M12 17v4"></path></svg>Only this computer</span>
+        <span style="display:inline-flex; align-items:center; gap:6px; height:28px; padding:0 10px; border-radius:6px; background:color-mix(in srgb, var(--error) 13%, transparent); font-size:13px; font-weight:500"><svg class="ic" sc-camel-view-box="0 0 24 24" aria-hidden="true" style="color:var(--error)"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg>Needs attention</span>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; align-items:center; gap:16px">
+        <span style="display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:500"><svg class="ic" sc-camel-view-box="0 0 24 24" aria-hidden="true" style="width:12px; height:12px; fill:var(--live); stroke:none"><circle cx="12" cy="12" r="8"></circle></svg>Live</span>
+        <span style="display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:500"><svg class="ic" sc-camel-view-box="0 0 24 24" aria-hidden="true" style="width:12px; height:12px; color:var(--waiting); stroke-width:2.5"><circle cx="12" cy="12" r="8" stroke-dasharray="3.4 2.9"></circle></svg>Waiting</span>
+        <span style="display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:500"><svg class="ic" sc-camel-view-box="0 0 24 24" aria-hidden="true" style="width:14px; height:14px; color:var(--error)"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg>Error</span>
+        <span style="display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:500; color:var(--text-2)"><svg class="ic" sc-camel-view-box="0 0 24 24" aria-hidden="true" style="width:14px; height:14px; color:var(--neutral)"><circle cx="12" cy="12" r="9"></circle><path d="M8.5 15.5 15.5 8.5"></path></svg>Not a web service</span>
+        <span style="display:inline-flex; gap:6px">
+          <span style="display:inline-flex; align-items:center; height:22px; padding:0 8px; border-radius:6px; border:1px solid var(--border-strong); font-size:12px; font-weight:500; color:var(--text-2)">Nidum</span>
+          <span style="display:inline-flex; align-items:center; height:22px; padding:0 8px; border-radius:6px; border:1px solid var(--border-strong); font-size:12px; font-weight:500; color:var(--text-2)">Command line</span>
+          <span style="display:inline-flex; align-items:center; height:22px; padding:0 8px; border-radius:6px; border:1px solid var(--border-strong); font-size:12px; font-weight:500; color:var(--text-2)">App</span>
+        </span>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; align-items:center; gap:16px 24px">
+        <span style="display:inline-flex; align-items:center; gap:2px">
+          <span class="mono" style="font-size:15px; font-weight:500; margin-right:6px">recipes.local</span>
+          <button type="button" class="btn btn-i" aria-label="Copy https://recipes.local"><svg class="ic" sc-camel-view-box="0 0 24 24" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button>
+          <button type="button" class="btn btn-i" aria-label="Open https://recipes.local"><svg class="ic" sc-camel-view-box="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></button>
+        </span>
+        <span style="display:inline-flex; align-items:center; gap:8px">
+          <button type="button" class="sw" role="switch" aria-checked="true" aria-label="Example switch on" style="background:var(--live)"><span style="left:18px; background:var(--knob)"></span></button>
+          <button type="button" class="sw" role="switch" aria-checked="false" aria-label="Example switch off" style="background:var(--border-input)"><span style="left:2px; background:var(--knob)"></span></button>
+        </span>
+        <span class="mono" style="display:inline-flex; align-items:center; height:36px; width:200px; padding:0 10px; box-sizing:border-box; border:1px solid var(--border-input); border-radius:6px; background:var(--surface); outline:2px solid var(--focus); outline-offset:1px">recipes<span style="color:var(--text-3)">.local</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="td" aria-label="Dark theme" style="background:var(--bg); color:var(--text); padding:48px; display:flex; flex-direction:column; gap:32px; color-scheme:dark">
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:24px">
+      <svg sc-camel-view-box="0 0 330 100" height="44" width="145" role="img" aria-label="nidum" style="color:var(--text)">
+        <g transform="translate(0 10) scale(.8)">
+          <g fill="currentColor">
+            <rect x="3" y="3" width="14" height="14" rx="2"></rect><rect x="83" y="3" width="14" height="14" rx="2"></rect>
+            <rect x="3" y="19" width="14" height="14" rx="2"></rect><rect x="19" y="19" width="14" height="14" rx="2"></rect><rect x="83" y="19" width="14" height="14" rx="2"></rect>
+            <rect x="3" y="35" width="14" height="14" rx="2"></rect><rect x="83" y="35" width="14" height="14" rx="2"></rect>
+            <rect x="3" y="51" width="14" height="14" rx="2"></rect><rect x="51" y="51" width="14" height="14" rx="2"></rect><rect x="83" y="51" width="14" height="14" rx="2"></rect>
+            <rect x="3" y="67" width="14" height="14" rx="2"></rect><rect x="67" y="67" width="14" height="14" rx="2"></rect><rect x="83" y="67" width="14" height="14" rx="2"></rect>
+            <rect x="3" y="83" width="14" height="14" rx="2"></rect><rect x="83" y="83" width="14" height="14" rx="2"></rect>
+          </g>
+          <g fill="none" stroke="currentColor" stroke-width="2" opacity=".3">
+            <rect x="19.75" y="3.75" width="12.5" height="12.5" rx="1.5"></rect><rect x="35.75" y="3.75" width="12.5" height="12.5" rx="1.5"></rect><rect x="51.75" y="3.75" width="12.5" height="12.5" rx="1.5"></rect><rect x="67.75" y="3.75" width="12.5" height="12.5" rx="1.5"></rect>
+            <rect x="35.75" y="19.75" width="12.5" height="12.5" rx="1.5"></rect><rect x="51.75" y="19.75" width="12.5" height="12.5" rx="1.5"></rect><rect x="67.75" y="19.75" width="12.5" height="12.5" rx="1.5"></rect>
+            <rect x="19.75" y="35.75" width="12.5" height="12.5" rx="1.5"></rect><rect x="51.75" y="35.75" width="12.5" height="12.5" rx="1.5"></rect><rect x="67.75" y="35.75" width="12.5" height="12.5" rx="1.5"></rect>
+            <rect x="19.75" y="51.75" width="12.5" height="12.5" rx="1.5"></rect><rect x="35.75" y="51.75" width="12.5" height="12.5" rx="1.5"></rect><rect x="67.75" y="51.75" width="12.5" height="12.5" rx="1.5"></rect>
+            <rect x="19.75" y="67.75" width="12.5" height="12.5" rx="1.5"></rect><rect x="35.75" y="67.75" width="12.5" height="12.5" rx="1.5"></rect><rect x="51.75" y="67.75" width="12.5" height="12.5" rx="1.5"></rect>
+            <rect x="19.75" y="83.75" width="12.5" height="12.5" rx="1.5"></rect><rect x="35.75" y="83.75" width="12.5" height="12.5" rx="1.5"></rect><rect x="51.75" y="83.75" width="12.5" height="12.5" rx="1.5"></rect><rect x="67.75" y="83.75" width="12.5" height="12.5" rx="1.5"></rect>
+          </g>
+          <rect x="35" y="35" width="14" height="14" rx="2" fill="#F2A33A"></rect>
+        </g>
+        <g transform="translate(112 20)">
+          <g fill="none" stroke="currentColor" stroke-width="9"><path d="M4.5 20V60M4.5 38A13.5 13.5 0 0 1 31.5 38V60"></path><path d="M48.5 20V60"></path><circle cx="82" cy="40" r="15.5"></circle><path d="M97.5 0V60"></path><path d="M115.5 20V42A13.5 13.5 0 0 0 142.5 42V20M142.5 20V60"></path><path d="M159.5 20V60M159.5 36.5A12 12 0 0 1 183.5 36.5V60M183.5 36.5A12 12 0 0 1 207.5 36.5V60"></path></g>
+          <circle cx="48.5" cy="5.5" r="5.5" fill="#F2A33A"></circle>
+        </g>
+      </svg>
+      <div style="text-align:right">
+        <div style="font-size:20px; line-height:28px; font-weight:600">Dark</div>
+        <div style="font-size:13px; line-height:18px; color:var(--text-2)">Ink ground · amber primary · borders, no shadows</div>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:12px">
+      <h2 style="margin:0; font-size:13px; line-height:18px; font-weight:600; color:var(--text-2)">Surfaces and text</h2>
+      <div style="display:grid; grid-template-columns:repeat(5, minmax(0, 1fr)); gap:16px">
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#0D0F13"></div><span class="mono" style="font-size:12px; font-weight:500">--bg</span><span class="mono" style="font-size:12px; color:var(--text-2)">#0D0F13</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#15181E"></div><span class="mono" style="font-size:12px; font-weight:500">--surface</span><span class="mono" style="font-size:12px; color:var(--text-2)">#15181E</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#1E222A"></div><span class="mono" style="font-size:12px; font-weight:500">--surface-2</span><span class="mono" style="font-size:12px; color:var(--text-2)">#1E222A</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#272C35"></div><span class="mono" style="font-size:12px; font-weight:500">--border</span><span class="mono" style="font-size:12px; color:var(--text-2)">#272C35</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#646A75"></div><span class="mono" style="font-size:12px; font-weight:500">--border-input</span><span class="mono" style="font-size:12px; color:var(--text-2)">#646A75 · 3.3:1</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#F3F1EC"></div><span class="mono" style="font-size:12px; font-weight:500">--text</span><span class="mono" style="font-size:12px; color:var(--text-2)">#F3F1EC · 15.7:1</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#A8ABB2"></div><span class="mono" style="font-size:12px; font-weight:500">--text-2</span><span class="mono" style="font-size:12px; color:var(--text-2)">#A8ABB2 · 7.7:1</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#878B94"></div><span class="mono" style="font-size:12px; font-weight:500">--text-3</span><span class="mono" style="font-size:12px; color:var(--text-2)">#878B94 · 5.2:1</span></div>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:12px">
+      <h2 style="margin:0; font-size:13px; line-height:18px; font-weight:600; color:var(--text-2)">Accent and status</h2>
+      <div style="display:grid; grid-template-columns:repeat(5, minmax(0, 1fr)); gap:16px">
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#F2A33A"></div><span class="mono" style="font-size:12px; font-weight:500">--accent</span><span class="mono" style="font-size:12px; color:var(--text-2)">#F2A33A</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#F5B45E"></div><span class="mono" style="font-size:12px; font-weight:500">--link</span><span class="mono" style="font-size:12px; color:var(--text-2)">#F5B45E · 9.8:1</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#2A2116"></div><span class="mono" style="font-size:12px; font-weight:500">--accent-weak</span><span class="mono" style="font-size:12px; color:var(--text-2)">#2A2116</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#F2A33A"></div><span class="mono" style="font-size:12px; font-weight:500">--focus</span><span class="mono" style="font-size:12px; color:var(--text-2)">#F2A33A · 9.2:1</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#F2A33A"></div><span class="mono" style="font-size:12px; font-weight:500">--amber</span><span class="mono" style="font-size:12px; color:var(--text-2)">#F2A33A · brand</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#45C986"></div><span class="mono" style="font-size:12px; font-weight:500">--live</span><span class="mono" style="font-size:12px; color:var(--text-2)">#45C986 · 8.4:1</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#E5C04A"></div><span class="mono" style="font-size:12px; font-weight:500">--waiting</span><span class="mono" style="font-size:12px; color:var(--text-2)">#E5C04A · 10.1:1</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#FF7B72"></div><span class="mono" style="font-size:12px; font-weight:500">--error</span><span class="mono" style="font-size:12px; color:var(--text-2)">#FF7B72 · 7.1:1</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#878B94"></div><span class="mono" style="font-size:12px; font-weight:500">--neutral</span><span class="mono" style="font-size:12px; color:var(--text-2)">#878B94 · 5.2:1</span></div>
+        <div style="display:flex; flex-direction:column; gap:4px"><div class="chip" style="background:#12151B"></div><span class="mono" style="font-size:12px; font-weight:500">--on-accent</span><span class="mono" style="font-size:12px; color:var(--text-2)">#12151B · 8.8:1</span></div>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:14px; padding:24px; background:var(--surface); border:1px solid var(--border); border-radius:10px">
+      <h2 style="margin:0; font-size:13px; line-height:18px; font-weight:600; color:var(--text-2)">Components on surface</h2>
+      <div style="display:flex; flex-wrap:wrap; gap:8px">
+        <button type="button" class="btn btn-p">Create address</button>
+        <button type="button" class="btn btn-s">Refresh</button>
+        <button type="button" class="btn btn-g">Rename</button>
+        <button type="button" class="btn btn-g btn-d">Remove</button>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; gap:8px">
+        <span style="display:inline-flex; align-items:center; gap:6px; height:28px; padding:0 10px; border-radius:6px; background:color-mix(in srgb, var(--live) 15%, transparent); font-size:13px; font-weight:500"><svg class="ic" sc-camel-view-box="0 0 24 24" aria-hidden="true" style="color:var(--live)"><path d="M12 20h.01"></path><path d="M2 8.82a15 15 0 0 1 20 0"></path><path d="M5 12.86a10 10 0 0 1 14 0"></path><path d="M8.5 16.43a5 5 0 0 1 7 0"></path></svg>Sharing on</span>
+        <span style="display:inline-flex; align-items:center; gap:6px; height:28px; padding:0 10px; border-radius:6px; background:color-mix(in srgb, var(--neutral) 15%, transparent); font-size:13px; font-weight:500"><svg class="ic" sc-camel-view-box="0 0 24 24" aria-hidden="true" style="color:var(--neutral)"><path d="M12 20h.01"></path><path d="M8.5 16.43a5 5 0 0 1 7 0"></path><path d="M2 8.82a15 15 0 0 1 4.18-2.65"></path><path d="M10.66 5c4.01-.36 8.14.9 11.34 3.76"></path><path d="m2 2 20 20"></path></svg>Paused</span>
+        <span style="display:inline-flex; align-items:center; gap:6px; height:28px; padding:0 10px; border-radius:6px; background:color-mix(in srgb, var(--waiting) 15%, transparent); font-size:13px; font-weight:500"><svg class="ic" sc-camel-view-box="0 0 24 24" aria-hidden="true" style="color:var(--waiting)"><rect width="20" height="14" x="2" y="3" rx="2"></rect><path d="M8 21h8"></path><path d="M12 17v4"></path></svg>Only this computer</span>
+        <span style="display:inline-flex; align-items:center; gap:6px; height:28px; padding:0 10px; border-radius:6px; background:color-mix(in srgb, var(--error) 15%, transparent); font-size:13px; font-weight:500"><svg class="ic" sc-camel-view-box="0 0 24 24" aria-hidden="true" style="color:var(--error)"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg>Needs attention</span>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; align-items:center; gap:16px">
+        <span style="display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:500"><svg class="ic" sc-camel-view-box="0 0 24 24" aria-hidden="true" style="width:12px; height:12px; fill:var(--live); stroke:none"><circle cx="12" cy="12" r="8"></circle></svg>Live</span>
+        <span style="display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:500"><svg class="ic" sc-camel-view-box="0 0 24 24" aria-hidden="true" style="width:12px; height:12px; color:var(--waiting); stroke-width:2.5"><circle cx="12" cy="12" r="8" stroke-dasharray="3.4 2.9"></circle></svg>Waiting</span>
+        <span style="display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:500"><svg class="ic" sc-camel-view-box="0 0 24 24" aria-hidden="true" style="width:14px; height:14px; color:var(--error)"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg>Error</span>
+        <span style="display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:500; color:var(--text-2)"><svg class="ic" sc-camel-view-box="0 0 24 24" aria-hidden="true" style="width:14px; height:14px; color:var(--neutral)"><circle cx="12" cy="12" r="9"></circle><path d="M8.5 15.5 15.5 8.5"></path></svg>Not a web service</span>
+        <span style="display:inline-flex; gap:6px">
+          <span style="display:inline-flex; align-items:center; height:22px; padding:0 8px; border-radius:6px; border:1px solid var(--border-strong); font-size:12px; font-weight:500; color:var(--text-2)">Nidum</span>
+          <span style="display:inline-flex; align-items:center; height:22px; padding:0 8px; border-radius:6px; border:1px solid var(--border-strong); font-size:12px; font-weight:500; color:var(--text-2)">Command line</span>
+          <span style="display:inline-flex; align-items:center; height:22px; padding:0 8px; border-radius:6px; border:1px solid var(--border-strong); font-size:12px; font-weight:500; color:var(--text-2)">App</span>
+        </span>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; align-items:center; gap:16px 24px">
+        <span style="display:inline-flex; align-items:center; gap:2px">
+          <span class="mono" style="font-size:15px; font-weight:500; margin-right:6px">recipes.local</span>
+          <button type="button" class="btn btn-i" aria-label="Copy https://recipes.local"><svg class="ic" sc-camel-view-box="0 0 24 24" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button>
+          <button type="button" class="btn btn-i" aria-label="Open https://recipes.local"><svg class="ic" sc-camel-view-box="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></button>
+        </span>
+        <span style="display:inline-flex; align-items:center; gap:8px">
+          <button type="button" class="sw" role="switch" aria-checked="true" aria-label="Example switch on" style="background:var(--live)"><span style="left:18px; background:var(--knob)"></span></button>
+          <button type="button" class="sw" role="switch" aria-checked="false" aria-label="Example switch off" style="background:var(--border-input)"><span style="left:2px; background:#A8ABB2"></span></button>
+        </span>
+        <span class="mono" style="display:inline-flex; align-items:center; height:36px; width:200px; padding:0 10px; box-sizing:border-box; border:1px solid var(--border-input); border-radius:6px; background:var(--surface-2); outline:2px solid var(--focus); outline-offset:1px">recipes<span style="color:var(--text-3)">.local</span></span>
+      </div>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:1040}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+
+
+</body></html>

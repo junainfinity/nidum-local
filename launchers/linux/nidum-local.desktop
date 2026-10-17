@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Nidum Local
+Comment=Share what's running on this computer with your network (experimental on Linux)
+# %k is this file's path (some desktops pass a percent-encoded file:// URI or nothing; the command copes).
+# Keep this file next to nidum-local.sh, mark it executable/trusted ("Allow Launching").
+Exec=bash -c "p=\\${0#file://}; case \\"\\$p\\" in *%%*) p=\\$(printf '%%b' \\"\\$(printf '%%s' \\"\\$p\\" | sed 's/%%\\\\([0-9A-Fa-f][0-9A-Fa-f]\\\\)/\\\\\\\\x\\\\1/g')\\") ;; esac; d=\\$(dirname \\"\\$p\\"); if [ -x \\"\\$d/nidum-local.sh\\" ]; then exec \\"\\$d/nidum-local.sh\\"; fi; echo; echo \\"  Open launchers/linux/nidum-local.sh from the Nidum Local folder in a terminal.\\"; echo; read -r -n 1 -p \\"  Press any key to close.\\" k" %k
+Icon=nidum-local
+Terminal=true
+Categories=Network;Utility;

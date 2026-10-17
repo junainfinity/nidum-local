@@ -1,0 +1,42 @@
+<dictionary> {
+  BSSID : 6c:5a:b0:00:00:01
+  IPv4 : <array> {
+    0 : <dictionary> {
+      Addresses : <array> {
+        0 : 192.168.1.42
+      }
+      ConfigMethod : DHCP
+      DHCP : <dictionary> {
+        LeaseExpirationTime : 10/15/2026 14:43:18
+        LeaseStartTime : 10/15/2026 12:43:18
+        State : BOUND
+      }
+      IsPublished : TRUE
+      Router : 192.168.1.1
+      RouterARPVerified : TRUE
+      ServiceID : A15DCA46-0878-4F84-8083-D40F96D5DECF
+      SubnetMasks : <array> {
+        0 : 255.255.255.0
+      }
+    }
+  }
+  IPv6 : <array> {
+    0 : <dictionary> {
+      ConfigMethod : Automatic
+      DHCPv6 : <dictionary> {
+        Mode : None
+        State : Inactive
+      }
+      IsPublished : TRUE
+      RTADV : <dictionary> {
+        State : Solicit
+      }
+      ServiceID : A15DCA46-0878-4F84-8083-D40F96D5DECF
+    }
+  }
+  InterfaceType : WiFi
+  LinkStatusActive : TRUE
+  NetworkID : 2F7C5E0A-3D7E-4F25-9B7B-5B9A1F0E2C11
+  SSID : Home WiFi 5G
+  Security : WPA2_PSK
+}

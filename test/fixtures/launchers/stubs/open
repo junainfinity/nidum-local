@@ -1,0 +1,12 @@
+#!/bin/bash
+# Stub open: records the call and does nothing else. For the D58 tests an app open
+# ("open -g -a <bundle> ...") can fail like a refused app: STUB_OPEN_FAIL_APP=<bundle path> fails
+# that bundle only, STUB_OPEN_FAIL=1 fails every app. Browser opens always succeed.
+echo "open $*" >>"$STUB_LOG"
+if [ "$1 $2" = "-g -a" ]; then
+  if [ "${STUB_OPEN_FAIL:-}" = 1 ] || { [ -n "${STUB_OPEN_FAIL_APP:-}" ] && [ "$3" = "$STUB_OPEN_FAIL_APP" ]; }; then
+    echo "The application cannot be opened for an unexpected reason" >&2
+    exit 1
+  fi
+fi
+exit 0
