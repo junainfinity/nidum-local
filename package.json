@@ -2,6 +2,7 @@
   "name": "nidum-local",
   "version": "1.0.0",
   "private": true,
+  "license": "MIT",
   "description": "Share what's running on this computer with your network. A dashboard on top of Portless.",
   "type": "module",
   "engines": {
